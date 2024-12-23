@@ -40,18 +40,17 @@ def getJobList():
 
 
 def isScheduleableEDF(joblist):
-    totalExec=0
-    totalPeriod = 0
+    total=0
     for Job in joblist.values():
-        totalExec+=Job.executionTime
-        totalPeriod+=Job.period
-        if(float(totalExec/totalPeriod)<=1):
+        total+=float(Job.executionTime/Job.period)
+        
+        
+    if(total<=1):
             print("EDF works!")
             return True
-        else:
+    else:
             print("Cannot schedule with EDF")
             return False
-
 def createGanthChart(ganttData,algo):
     # Generate unique colors for each job
     unique_jobs = set(entry[0] for entry in ganttData if entry[0] != "Idle")
