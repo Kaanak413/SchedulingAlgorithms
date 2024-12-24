@@ -10,12 +10,12 @@ class Job:
         self.id =  id
         self.period = period
         self.executionTime = executionTime
-        self.remaningTime = self.executionTime
+        self.remainingTime = self.executionTime
     def setStartTime(self,time=0):
         self.startTime = time 
         self.deadline = self.startTime+self.period
     def setSlackTime(self,CurrentTime):
-        self.slackTime = self.deadline-CurrentTime-self.remaningTime
+        self.slackTime = self.deadline-CurrentTime-self.remainingTime
 
 def getJobList():
     print("Give Number Of Jobs!")
